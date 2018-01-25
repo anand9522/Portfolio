@@ -1,6 +1,10 @@
 <h1> Portfolios </h1>
+<%= link_to "Create new item", new_work_portfolio_path %>
 <% @portfolios.each do |item| %>
-   <h2> <%=item.title %> </h2>
+   <h2> <%= link_to item.title, work_portfolio_path(item.id) %> </h2>
    <p> <%= item.body %> </p>
    <%= image_tag item.thumb_image unless item.thumb_image.nil?%>
+   <%= link_to 'Delete Item', work_portfolio_path(item), method: :delete, data: {confirm: '
+     Uda du BC?'} %>
+
 <%end%>
